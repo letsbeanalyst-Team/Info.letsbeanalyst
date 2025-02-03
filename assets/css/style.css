@@ -339,11 +339,19 @@ body.nav-active { overflow: hidden; }
 
 .nav-close-btn {
   background-color: var(--white_a8);
-  color: var(--white);
+  color: var(--black-coral);
   font-size: 2rem;
   padding: 6px;
   border-radius: var(--radius-circle);
   transition: var(--transition-1);
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
 }
 
 .nav-close-btn ion-icon { --ionicon-stroke-width: 50px; }
@@ -389,10 +397,7 @@ body.nav-active { overflow: hidden; }
     align-items: center;
   }
   
-  /* ============================
-     Dropdown Menu Styles
-     ============================ */
-  /* ============================
+   /* ============================
    Dropdown Menu Styles
    ============================ */
 /* Dropdown Container */
@@ -1214,4 +1219,158 @@ body.nav-active { overflow: hidden; }
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-list {
+        flex-direction: column;
+        background: white;
+        color: var(--black-coral);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        display: none; /* Hide by default */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-list.active {
+        display: flex;
+    }
+}
+
+
+/* Get in touch */
+/* Popup form styles */
+.popup-form {
+padding-top: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: white;
+  padding: 30px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.form-container h2 {
+  color: #3b2e73;
+  margin-bottom: 10px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container button {
+  background-color: #3b2e73;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+  /* Terms & Condition */
+  /* Overlay and Popup Styling */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: left;
+}
+
+.popup-content h2 {
+  color: #3b2e73;
+  margin-bottom: 10px;
+}
+
+.popup-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.popup-content button {
+  background-color: #3b2e73;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.terms-content {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }

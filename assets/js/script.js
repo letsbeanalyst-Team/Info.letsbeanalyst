@@ -171,4 +171,58 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-   
+  document.querySelector(".nav-open-btn").addEventListener("click", function() {
+    document.querySelector(".navbar-list").classList.toggle("active");
+});
+
+
+// document.querySelector(".nav-open-btn").addEventListener("click", function() {
+    
+//   document.querySelector(".navbar-list").classList.toggle("active");
+// });
+
+
+// Footer to Contact US in URL
+  function scrollToFooter(event) {
+    event.preventDefault();  // Prevent default navigation
+    window.history.pushState(null, null, "/Contact");  // Change the URL without reloading
+    document.getElementById("footer").scrollIntoView({ behavior: "smooth" });
+  }
+  // Footer to contact us code end
+
+// get in touch
+
+  function openForm() {
+    document.getElementById("popupForm").style.display = "flex";
+  }
+
+  function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+  }
+
+// get in touch end
+
+// Terms & Conditions
+
+  function openTerms() {
+    document.getElementById("termsPopup").style.display = "flex";
+  }
+
+  function closeTerms() {
+    document.getElementById("termsPopup").style.display = "none";
+  }
+
+  function acceptTerms() {
+    alert("Thank you for accepting the Terms and Conditions.");
+    closeTerms();
+  }
+
+// Privacy & Policy
+
+function openprivacy() {
+  document.getElementById("privacyPopup").style.display = "flex";
+}
+
+function closeprivacy() {
+  document.getElementById("privacyPopup").style.display = "none";
+}
