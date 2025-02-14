@@ -226,3 +226,24 @@ function openprivacy() {
 function closeprivacy() {
   document.getElementById("privacyPopup").style.display = "none";
 }
+
+// Javascript for accessing career catalyst payment form.
+document.getElementById("career-catalyst-payment").addEventListener("click", function() {
+  window.location.href = "https://payments.cashfree.com/forms/careercatalyst";
+});
+
+// Javascript end for accessing career catalyst payment form.
+
+// Javascript for accessing upcoming batch form.
+
+document.getElementById("Upcoming-Batch-payment").addEventListener("click", function() {
+  window.location.href = "https://payments.cashfree.com/forms/UpComingbatch";
+});
+
+// Javascript end for accessing upcoming batch form.
+
+// Javascript for othe program, which are not ready now for enrollment- we will chnage the id and link later.
+document.getElementById("notlive").addEventListener("click", function() {
+  window.location.href = "inservice.html"; 
+});
+// Javascript end for othe program, which are not ready now for enrollment- we will chnage the id and link later.
