@@ -227,6 +227,14 @@ function closeprivacy() {
   document.getElementById("privacyPopup").style.display = "none";
 }
 
+// Cancellation & Refund
+function opencrpolicy() {
+  document.getElementById("crpolicyPopup").style.display = "flex";
+}
+
+function closecrpolicy() {
+  document.getElementById("crpolicyPopup").style.display = "none";
+}
 // Javascript for accessing career catalyst payment form.
 document.getElementById("career-catalyst-payment").addEventListener("click", function() {
   window.location.href = "https://payments.cashfree.com/forms/careercatalyst";
