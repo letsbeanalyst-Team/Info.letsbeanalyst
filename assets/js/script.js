@@ -282,3 +282,93 @@ document.addEventListener('click', function(event) {
 });
 
 // Javascript for Side Buttons end
+
+
+//Stats Counter Animation
+function animateNumbers(target, start, end, duration) {
+  let range = end - start;
+  let startTime = null;
+
+  function step(currentTime) {
+    if (!startTime) startTime = currentTime;
+    let progress = Math.min((currentTime - startTime) / duration, 1);
+    target.innerText = Math.floor(progress * range + start);
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+function startCounterAnimation(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      let numbers = entry.target.querySelectorAll(".stats-card .h1");
+
+      numbers.forEach(num => {
+        let endValue = parseInt(num.innerText.replace("+", ""));
+        animateNumbers(num, 0, endValue, 2000);
+      });
+
+      observer.unobserve(entry.target); // Stop observing once animation runs
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  let statsSection = document.querySelector(".stats");
+  
+  if (statsSection) {
+    let observer = new IntersectionObserver(startCounterAnimation, {
+      threshold: 0.5, // Triggers when 50% of the section is visible
+    });
+
+    observer.observe(statsSection);
+  }
+});
+
+//Typing Animation
+
+document.addEventListener("DOMContentLoaded", function () {
+  const textElement = document.querySelector(".hero-title");
+  const text = "Crafting Data Analyst from Non-IT.";
+  let index = 0;
+
+  function typeText() {
+    if (index < text.length) {
+      textElement.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeText, 100); // Adjust speed (100ms per letter)
+    }
+  }
+
+  textElement.innerHTML = ""; // Clear existing text
+  typeText();
+});
+
+
+// Typing Animation end
+
+function typeEffect(element, text, speed) {
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      element.innerHTML = text.substring(0, i + 1) + '<span class="typing"></span>';
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  let headings = document.querySelectorAll(".h2");
+
+  headings.forEach((heading) => {
+    let text = heading.innerText;
+    heading.innerText = ""; // Clear text before animation
+    typeEffect(heading, text, 100); // 100ms per character
+  });
+});

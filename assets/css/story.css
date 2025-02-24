@@ -494,8 +494,20 @@ display: block;
 }
 
 
+.project-card {
+  background-color: var(--white);
+  border-radius: var(--radius-8);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+  height: 100%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
-
+.project-card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card */
+  box-shadow: var(--shadow-4); /* Enhances the shadow to make it pop */
+  z-index: 10;
+}
 
 /*-----------------------------------*\
   #CTA
