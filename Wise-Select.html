@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #f0f8f0, #ffffff);
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+        }
+        .box {
+            flex: 1;
+            padding: 40px;
+            text-align: center;
+        }
+        .left {
+            background: #f6fff6;
+            border-radius: 10px 0 0 10px;
+        }
+        .right {
+            background: #ffffff;
+            border-radius: 0 10px 10px 0;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        h2 span {
+            color: green;
+        }
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-green {
+            background: green;
+            color: white;
+        }
+        .btn-outline {
+            border: 2px solid black;
+            background: white;
+            color: black;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+        .footer a {
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box left">
+            <h2>For <span>Organization</span></h2>
+            <p>We are the market-leading technical interview platform to identify and hire developers with the right skills.</p>
+            <button class="btn btn-green">Login</button>
+            <div class="footer">
+                <p>Don't have an account? <a href="#">Contact sales</a> or <a href="#">Get free trial</a></p>
+            </div>
+        </div>
+        <div class="box right">
+            <h2>For <span>Individuals</span></h2>
+            <p>Join over 21 million developers, practice coding skills, prepare for interviews, and get hired.</p>
+            <button class="btn btn-outline">Login</button>
+            <div class="footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

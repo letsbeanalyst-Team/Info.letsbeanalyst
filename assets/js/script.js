@@ -234,24 +234,51 @@ function opencrpolicy() {
 
 function closecrpolicy() {
   document.getElementById("crpolicyPopup").style.display = "none";
+};
+
+// Javascript for star animation
+
+function createStar() {
+  const star = document.createElement("div");
+  star.classList.add("star");
+
+  const size = Math.random() * 10 + 5; // Random size between 5px and 15px
+  star.style.width = `${size}px`;
+  star.style.height = `${size}px`;
+
+  const posX = Math.random() * window.innerWidth;
+  const posY = Math.random() * window.innerHeight;
+  star.style.left = `${posX}px`;
+  star.style.top = `${posY}px`;
+
+  document.getElementById("star-container").appendChild(star);
+
+  setTimeout(() => {
+      star.remove(); // Remove star after animation
+  }, 1000);
 }
-// Javascript for accessing career catalyst payment form.
-document.getElementById("career-catalyst-payment").addEventListener("click", function() {
-  window.location.href = "https://payments.cashfree.com/forms/careercatalyst";
+
+// Create stars at intervals
+setInterval(createStar, 300);
+
+
+// Javascript for Side Buttons
+function showPopup(page) {
+  const popup = document.getElementById('popup');
+  const iframe = document.getElementById('popupFrame');
+  iframe.src = page;
+  popup.style.display = 'block';
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+document.addEventListener('click', function(event) {
+  const popup = document.getElementById('popup');
+  if (!popup.contains(event.target) && !event.target.classList.contains('side-button')) {
+      popup.style.display = 'none';
+  }
 });
 
-// Javascript end for accessing career catalyst payment form.
-
-// Javascript for accessing upcoming batch form.
-
-document.getElementById("Upcoming-Batch-payment").addEventListener("click", function() {
-  window.location.href = "https://payments.cashfree.com/forms/UpComingbatch";
-});
-
-// Javascript end for accessing upcoming batch form.
-
-// Javascript for othe program, which are not ready now for enrollment- we will chnage the id and link later.
-document.getElementById("notlive").addEventListener("click", function() {
-  window.location.href = "inservice.html"; 
-});
-// Javascript end for othe program, which are not ready now for enrollment- we will chnage the id and link later.
+// Javascript for Side Buttons end

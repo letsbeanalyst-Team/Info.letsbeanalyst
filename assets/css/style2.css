@@ -471,7 +471,8 @@ body.nav-active { overflow: hidden; }
   gap: 70px;
 }
 
-.hero-title { color: var(--white); }
+.hero-title { color: var(--white);}
+
 
 .hero-text {
   font-size: var(--fs-5);

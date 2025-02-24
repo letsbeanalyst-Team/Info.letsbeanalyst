@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Capture Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(239, 239, 239, 0.6);
+        }
+
+        #leadCaptureForm {
+            position: relative;
+            z-index: 1;
+            max-width: 400px;
+            width: 100%;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #leadCaptureForm:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-align: left;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: block;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #3a0078, #5a00b3);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #5a00b3, #7a1fc9);
+            transform: scale(1.05);
+        }
+
+        @keyframes rocketLaunch {
+            0% {
+                bottom: 0;
+                left: 0;
+                opacity: 0;
+            }
+            100% {
+                bottom: 100%;
+                left: 100%;
+                opacity: 1;
+            }
+        }
+
+        .rocket {
+            position: absolute;
+            width: 50px;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            animation: rocketLaunch 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <form id="leadCaptureForm" action="https://script.google.com/macros/s/AKfycbxd3lchrEHxNssQfNiOrS-90sQEdbpewdWjqrDUpNx8iT47CpyzXrVwf0o07vcCub7i/exec" method="POST">     
+        <h2>🚀 Take the First Step!</h2>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <label for="description">How you describe yourself:</label>
+        <select id="description" name="description" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="college_grad">College grad/fresher</option>
+            <option value="working_it">Working professional IT</option>
+            <option value="working_non_it">Working professional Non-IT</option>
+        </select>
+        <label for="comment">Comment:</label>
+        <input type="text" id="comment" name="comment">
+        <button type="submit">Submit</button>
+    </form>
+
+    <img src="/assets/images/Rocket.png" class="rocket" alt="Rocket">
+    <script>
+        document.getElementById("leadCaptureForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            var form = event.target;
+            var formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json()) // Parse JSON response
+            .then(data => {
+                if (data.result === "success") {
+                    alert("🎉 Thank you! Your form has been submitted successfully.");
+                    form.reset(); // Optional: Reset the form after submission
+                } else {
+                    alert("⚠️ Submission failed. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("⚠️ An error occurred. Please try again later.");
+            });
+        });
+    </script>
+    
+</body>
+</html>

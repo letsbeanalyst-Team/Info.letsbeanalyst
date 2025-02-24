@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oops! Lets have a quick call before Enrolling.</title>
-      <!-- 
+    <!-- 
     - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
 
-  <!-- 
+    <!-- 
     - custom css link
-  -->
+    -->
     <style>
         * {
             margin: 0;
@@ -86,20 +86,111 @@
             color: white;
         }
 
+        .popup-form {
+            padding-top: 100px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .form-container h2 {
+            color: #3b2e73;
+            margin-bottom: 10px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background-color: #3b2e73;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-container label {
+    cursor: pointer;
+}
+
+
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="error-icon">⚠️</div>
-        <h1>Oops! You can't Enroll Now.</h1>
-        <p>We're sorry, but an unexpected error has occurred.</p>
-        <p>Please click to call Now</p>
+        <h1>Enrollment Full! Join the Waitlist.</h1>
+        <p>All slots are currently booked. Don't worry—you can join the waitlist, and we'll notify you when a spot opens up.</p>
         <div class="buttons">
+            <button onclick="openForm()">📩 Join Waitlist</button>
             <button onclick="goBack()">🔙 Go Back</button>
-            <a href="tel:7050973203">
-                <button class="call-button">📞 Call Me</button>
-            </a>
+        </div>
+    </div>
+    
+
+    <!-- Popup form -->
+    <div class="popup-form" id="popupForm">
+        <div class="form-container">
+            <button class="close-btn" onclick="closeForm()">X</button>
+            <h2>Send us a message</h2>
+            <p>Choose us next get your Best!</p>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="3bd997e2-9554-423e-8d74-b5016482e19f">
+                <label for="name">Enter your name</label>
+                <input type="text" id="name" name="name" placeholder="Your name..." required>
+                
+                <label for="email">Enter your email</label>
+                <input type="email" id="email" name="email" placeholder="Your email..." required>
+                
+                <label for="phone">Enter your phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your phone number..." pattern="[0-9]{10}" required>
+                
+                <label for="message">Enter your message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Your message..." required></textarea>
+                
+                <button type="submit">Send Now</button>
+            </form>
         </div>
     </div>
 
@@ -107,6 +198,20 @@
         function goBack() {
             window.history.back();
         }
+
+        function openForm() {
+            document.getElementById("popupForm").style.display = "flex";
+        }
+
+        function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+        }
+        document.querySelectorAll("label").forEach(label => {
+    label.addEventListener("click", () => {
+        console.log(`Label clicked: ${label.getAttribute("for")}`);
+    });
+});
+
     </script>
 
 </body>

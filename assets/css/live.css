@@ -1048,3 +1048,56 @@
     margin-bottom: 15px;
   }
   
+  /* css for star */
+
+  #star-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: gold;
+    opacity: 0;
+    animation: pop 2s;
+
+    /* animation: pop 2s linear forwards; */
+    font-size: 30px;
+
+}
+
+/* .star {
+  position: relative;
+  display: block;
+  margin: 50px;
+  color: gold;
+  font-size: 50px;
+} */
+
+.star::before,
+.star::after {
+  content: "★"; /* Unicode star character */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+/* css for star end */
