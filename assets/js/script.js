@@ -372,3 +372,20 @@ document.addEventListener("DOMContentLoaded", function () {
     typeEffect(heading, text, 100); // 100ms per character
   });
 });
+
+
+// 404 Page Dynamicaly Pop
+// Check if the page exists in the site structure
+window.addEventListener("DOMContentLoaded", function () {
+  fetch(window.location.pathname)
+      .then(response => {
+          if (!response.ok) {
+              // If the response is not found (404), redirect to custom 404 page
+              window.location.href = "/404.html";
+          }
+      })
+      .catch(() => {
+          // If there's an error fetching the page, assume it's missing
+          window.location.href = "/404.html";
+      });
+});
