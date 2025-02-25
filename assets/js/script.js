@@ -349,31 +349,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Typing Animation end
-
-function typeEffect(element, text, speed) {
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      element.innerHTML = text.substring(0, i + 1) + '<span class="typing"></span>';
-      i++;
-      setTimeout(type, speed);
-    }
-  }
-  type();
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  let headings = document.querySelectorAll(".h2");
-
-  headings.forEach((heading) => {
-    let text = heading.innerText;
-    heading.innerText = ""; // Clear text before animation
-    typeEffect(heading, text, 100); // 100ms per character
-  });
-});
-
-
 // 404 Page Dynamicaly Pop
 // Check if the page exists in the site structure
 window.addEventListener("DOMContentLoaded", function () {
