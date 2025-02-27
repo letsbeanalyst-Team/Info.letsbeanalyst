@@ -364,3 +364,20 @@ window.addEventListener("DOMContentLoaded", function () {
           window.location.href = "/404.html";
       });
 });
+
+// sTOP iNSPECTING
+document.oncontextmenu = () => {
+  alert("Don't try to Right-click Your activity is being monitored");
+  return false;
+}
+
+document.addEventListener("keydown", function (e) {
+  if (
+      (e.ctrlKey && e.key.toLowerCase() === "c") || // Ctrl + C
+      (e.ctrlKey && e.key.toLowerCase() === "u") || // Ctrl + U
+      (e.key === "F12") // F12
+  ) {
+      alert("Don't try to inspect. Your activity is being monitored.");
+      e.preventDefault();
+  }
+});
