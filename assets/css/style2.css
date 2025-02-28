@@ -1388,3 +1388,50 @@ padding-top: 100px;
   line-height: 1.5;
   margin-bottom: 15px;
 }
+
+
+/* Running text */
+.announcement-bar {
+  width: 100%; /* Adjust width (change to 100% if needed) */
+  padding: 4px 0; /* Reduces height */
+  background-color: #ffcc00; /* Bright background for visibility */
+  color: #000;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.announcement-bar p {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+  font-size: 14px; /* Adjust text size */
+}
+
+@keyframes marquee {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(-100%);
+  }
+}
+
+/* Highlighted "Join Now" Button */
+.join-now-btn {
+  background-color: black; /* Eye-catching orange */
+  color: white;
+  padding: 6px 12px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.join-now-btn:hover {
+  background-color: #7a243f; /* Darker shade on hover */
+}
